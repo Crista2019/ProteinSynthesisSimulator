@@ -33,7 +33,7 @@ class DNA:
     K = ["AAA", "AAG"]
     R = ["CGU", "CGC", "CGA", "CGG", "AGA", "AGG"]
     stop = ["TAA", "TAG", "TGA"]
-    amino acids = {"Isoleucine":I, "Leucine":L, "Valine":V, "Phenylalanine":F, "Methionine":M, "Cysteine":C, "Alanine":A, "Glycine":G, "Proline":P, "Threonine":T, "Serine":S, "Tyrosine":Y, "Tryptophan":W, "Glutamine":Q, "Asparagine":N, "Histidine":H, "Glutamic acid":E, "Aspartic acid":D, "Lysine":K, "Arginine":R, "Stop Codons":stop}
+    amino_acids = {"Isoleucine":I, "Leucine":L, "Valine":V, "Phenylalanine":F, "Methionine":M, "Cysteine":C, "Alanine":A, "Glycine":G, "Proline":P, "Threonine":T, "Serine":S, "Tyrosine":Y, "Tryptophan":W, "Glutamine":Q, "Asparagine":N, "Histidine":H, "Glutamic acid":E, "Aspartic acid":D, "Lysine":K, "Arginine":R, "Stop Codons":stop}
 
     def __init__(self, sequence):
         self.DNA_double_helix = sequence;
@@ -69,22 +69,37 @@ class DNA:
     def transcribe(self):
         print("Original DNA:\n"+str(self.DNA_double_helix)+"\n")
         self.transcription_initiation()
-        print("DNA_coding_strand:   "+str(self.DNA_coding_strand))
-        print("DNA_template_strand: "+str(self.DNA_template_strand))
+        print("DNA_coding_strand:   "+str(self.DNA_coding_strand)+"\n")
+        print("DNA_template_strand: "+str(self.DNA_template_strand)+"\n")
         self.transcription_elongation()
-        print("mRNA:                "+str(self.mRNA_strand))
+        print("mRNA:                "+str(self.mRNA_strand)+"\n")
         self.transcription_termination()
         return self.mRNA_strand
 
-    def translation_initiation():
-        # the ribosome gets together with the mRNA and the first tRNA so translation can begin.
-        pass
+    def parseToCodons(self, mRNA):
+        # converts mRNA into an array of 3 base codons
+        codonIndex = 0
+        eachCodon = ""
+        for nucleotideBase in mRNA:
+            if codonIndex < 3:
+                eachCodon+=str(nucleotideBase)
+                codonIndex+=1
+            if codonIndex == 3:
+                self.codons.append(eachCodon)
+                codonIndex = 0
+                eachCodon = ""
+                # any partial nucleotide bases are not included (only full codons of 3 elements get parsed)
+        print("String of codons:    "+str(self.codons))
 
-    def translation_elongation():
+    def translation_initiation(self):
+        # the ribosome gets together with the mRNA and the first tRNA so translation can begin.
+        self.parseToCodons(self.mRNA_strand)
+
+    def translation_elongation(self):
         # amino acids are brought to the ribosome by tRNAs and linked together to form a chain.
         pass
 
-    def translation_termination():
+    def translation_termination(self):
         # the finished polypeptide is released to go and do its job in the cell.
         pass
 
@@ -92,8 +107,9 @@ class DNA:
         pass
 
 def main():
-    dna_test_seq = [{'A':'T'}, {'C':'G'}, {'T':'A'}, {'G':'C'}, {'T':'A'}, {'C':'G'}, {'A':'T'}]
+    dna_test_seq = [{'A':'T'}, {'C':'G'}, {'T':'A'}, {'A':'T'}, {'T':'A'}, {'G':'C'}, {'C':'G'}, {'C':'G'}, {'T':'A'}, {'C':'G'}, {'A':'T'}, {'T':'A'}, {'C':'G'}, {'G':'C'}, {'A':'T'}, {'A':'T'}, {'A':'T'}, {'G':'C'}, {'C':'G'}, {'G':'C'}, {'A':'T'}, {'T':'A'}, {'C':'G'}, {'G':'C'}, {'G':'C'}, {'G':'C'}, {'T':'A'}, {'G':'C'}]
     dna_test = DNA(dna_test_seq)
     dna_test.transcribe()
+    dna_test.translation_initiation()
 
 if __name__ == "__main__": main()
