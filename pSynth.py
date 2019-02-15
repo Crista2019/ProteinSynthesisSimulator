@@ -11,8 +11,29 @@ class DNA:
     DNANucleotideBasePairings = {'A':'T', 'T':'A', 'C':'G', 'G':'C'}
     RNANucleotideComplementsTODNA = {'A':'U', 'T':'A', 'C':'G', 'G':'C'}
 
-    # Hashmap of the 20 Amino acids, their single-letter data-base codes (SLC), and their corresponding DNA codons
-    amino acids = {}
+    # Hashmap of the 20 Amino acids, their single-letter data-base codes (SLC), and their corresponding RNA codons
+    I = ["AUU", "AUC", "AUA"]
+    L = ["CUU", "CUC", "CUA", "CUG", "UUA", "UUG"]
+    V = ["GUU", "GUC", "GUA", "GUG"]
+    F = ["UUU", "UUC"]
+    M = ["AUG"]
+    C = ["UGU", "UGC"]
+    A = ["GCU", "GCC", "GCA", "GCG"]
+    G = ["GGU", "GGC", "GGA", "GGG"]
+    P = ["CCU, CCC, CCA, CCG"]
+    T = ["ACU", "ACC", "ACA", "ACG"]
+    S = ["UCU", "UCC", "UCA", "UCG", "AGU", "AGC"]
+    Y = ["UAU", "UAC"]
+    W = ["UGG"]
+    Q = ["CAA", "CAG"]
+    N = ["AAU", "AAC"]
+    H = ["CAU", "CAC"]
+    E = ["GAA", "GAG"]
+    D = ["GAU", "GAC"]
+    K = ["AAA", "AAG"]
+    R = ["CGU", "CGC", "CGA", "CGG", "AGA", "AGG"]
+    stop = ["TAA", "TAG", "TGA"]
+    amino acids = {"Isoleucine":I, "Leucine":L, "Valine":V, "Phenylalanine":F, "Methionine":M, "Cysteine":C, "Alanine":A, "Glycine":G, "Proline":P, "Threonine":T, "Serine":S, "Tyrosine":Y, "Tryptophan":W, "Glutamine":Q, "Asparagine":N, "Histidine":H, "Glutamic acid":E, "Aspartic acid":D, "Lysine":K, "Arginine":R, "Stop Codons":stop}
 
     def __init__(self, sequence):
         self.DNA_double_helix = sequence;
