@@ -1,5 +1,3 @@
-from collections import defaultdict
-
 class DNA:
     codons = []
     DNA_double_helix = [{'',''}] # array of one item dict for each base pairs to allow for duplicates e.g. {{'A':'T'}, {'C':'G'}, {'A':'T'}}
@@ -138,10 +136,13 @@ class DNA:
         codonStopIndex = self.translation_elongation(codonStartIndex)
         self.translation_termination(codonStopIndex)
 
+    def synthesize_polypeptides(self):
+        self.transcribe()
+        self.translate()
+
 def main():
-    dna_test_seq = [{'A':'T'}, {'C':'G'}, {'T':'A'}, {'A':'T'}, {'T':'A'}, {'G':'C'}, {'C':'G'}, {'C':'G'}, {'T':'A'}, {'C':'G'}, {'A':'T'}, {'T':'A'}, {'C':'G'}, {'G':'C'}, {'A':'T'}, {'A':'T'}, {'A':'T'}, {'G':'C'}, {'C':'G'}, {'G':'C'}, {'A':'T'}, {'T':'A'}, {'C':'G'}, {'G':'C'}, {'G':'C'}, {'G':'C'}, {'T':'A'}, {'G':'C'}, {'T':'A'}, {'A':'T'}, {'T':'A'}, {'A':'T'}, {'A':'T'}, {'G':'C'}, {'G':'C'}, {'G':'C'}]
-    dna_test = DNA(dna_test_seq)
-    dna_test.transcribe()
-    dna_test.translate()
+    dna_test_seq1 = [{'A':'T'}, {'C':'G'}, {'T':'A'}, {'A':'T'}, {'T':'A'}, {'G':'C'}, {'C':'G'}, {'C':'G'}, {'T':'A'}, {'C':'G'}, {'A':'T'}, {'T':'A'}, {'C':'G'}, {'G':'C'}, {'A':'T'}, {'A':'T'}, {'A':'T'}, {'G':'C'}, {'C':'G'}, {'G':'C'}, {'A':'T'}, {'T':'A'}, {'C':'G'}, {'G':'C'}, {'G':'C'}, {'G':'C'}, {'T':'A'}, {'G':'C'}, {'T':'A'}, {'A':'T'}, {'T':'A'}, {'A':'T'}, {'A':'T'}, {'G':'C'}, {'G':'C'}, {'G':'C'}]
+    dna_test1 = DNA(dna_test_seq1)
+    dna_test1.synthesize_polypeptides()
 
 if __name__ == "__main__": main()
