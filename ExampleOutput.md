@@ -1,11 +1,11 @@
-# Example input in main:
+## Example input in main:
 ```
 dna_test_seq1 = [{'A':'T'}, {'C':'G'}, {'T':'A'}, {'A':'T'}, {'T':'A'}, {'G':'C'}, {'C':'G'}, {'C':'G'}, {'T':'A'}, {'C':'G'}, {'A':'T'}, {'T':'A'}, {'C':'G'}, {'G':'C'}, {'A':'T'}, {'A':'T'}, {'A':'T'}, {'G':'C'}, {'C':'G'}, {'G':'C'}, {'A':'T'}, {'T':'A'}, {'C':'G'}, {'G':'C'}, {'G':'C'}, {'G':'C'}, {'T':'A'}, {'G':'C'}, {'T':'A'}, {'A':'T'}, {'T':'A'}, {'A':'T'}, {'A':'T'}, {'G':'C'}, {'G':'C'}, {'G':'C'}]
 dna_test1 = DNA(dna_test_seq1)
 dna_test1.synthesize_polypeptides()
 ```
 
-# Output printed to the console upon execution:
+## Output printed to the console upon execution:
 ```
 Original DNA:
 [{'A': 'T'}, {'C': 'G'}, {'T': 'A'}, {'A': 'T'}, {'T': 'A'}, {'G': 'C'}, {'C': 'G'}, {'C': 'G'}, {'T': 'A'}, {'C': 'G'}, {'A': 'T'}, {'T': 'A'}, {'C': 'G'}, {'G': 'C'}, {'A': 'T'}, {'A': 'T'}, {'A': 'T'}, {'G': 'C'}, {'C': 'G'}, {'G': 'C'}, {'A': 'T'}, {'T': 'A'}, {'C': 'G'}, {'G': 'C'}, {'G':'C'}, {'G': 'C'}, {'T': 'A'}, {'G': 'C'}, {'T': 'A'}, {'A': 'T'}, {'T': 'A'}, {'A': 'T'}, {'A': 'T'}, {'G': 'C'}, {'G': 'C'}, {'G': 'C'}]
